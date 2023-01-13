@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
     private bool turningRight = false;
 
     float rot = 0.0f;
-    float acc = 0.1f;
+    float acc = 0.01f;
 
     void Start()
     {
@@ -48,6 +48,28 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
 
+        if(Input.GetKeyDown(KeyCode.JoystickButton0)) {
+            Debug.Log("!!!!!!!!!!!!!!!!!!! 0");
+        };
+        if(Input.GetKeyDown(KeyCode.JoystickButton1)) {
+            Debug.Log("!!!!!!!!!!!!!!!!!!! 1");
+        };
+        if(Input.GetKeyDown(KeyCode.JoystickButton2)) {
+            Debug.Log("!!!!!!!!!!!!!!!!!!! 2");
+        };
+        if(Input.GetKeyDown(KeyCode.JoystickButton3)) {
+            Debug.Log("!!!!!!!!!!!!!!!!!!! 3");
+        };
+        if(Input.GetKeyDown(KeyCode.JoystickButton4)) {
+            Debug.Log("!!!!!!!!!!!!!!!!!!! 4");
+        };
+        if(Input.GetKeyDown(KeyCode.JoystickButton5)) {
+            Debug.Log("!!!!!!!!!!!!!!!!!!! 5");
+        };
+        if(Input.GetKeyDown(KeyCode.JoystickButton6)) {
+            Debug.Log("!!!!!!!!!!!!!!!!!!! 6");
+        };
+
         if (lives == 0)
         {
             gameOver = true;
@@ -59,7 +81,7 @@ public class PlayerMove : MonoBehaviour
         if (!gameOver) {
             transform.Translate(Vector3.forward * Time.deltaTime * actualMoveSpeed, Space.World);
             
-            moveLane();
+            moveFree();
         }
         
     }
@@ -120,21 +142,24 @@ public class PlayerMove : MonoBehaviour
     }
 
     private void handleInput() {
-        rot = Input.GetAxis("Horizontal") * Time.deltaTime * 300.0f;
+        rot = Input.GetAxis("Horizontal") * Time.deltaTime * 700.0f;
 
-        if (rot < -acc) {
+        if (rot < 0) {
             turningLeft = true;
             turningRight = false;
-
-            
+          
+            //Debug.Log("LEFT");
         }
-        else if(rot > acc) {
+        else if(rot > 0) {
             turningLeft = false;
             turningRight = true;
+          
+            //Debug.Log("RIGHT");
         }
         else {
             turningLeft = false;
             turningRight = false;
+            //Debug.Log("no move");
         }
     }
 
