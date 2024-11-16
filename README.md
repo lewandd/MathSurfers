@@ -1,3 +1,3 @@
 # MathSurfers
 
-Edukacyjna gra typu endless runner, której celem jest unikanie przeszkód, zbieranie punktów oraz nauka podstaw matematyki. Gra napisana jest w Unity. Poza standardowym widokiem, dostępny jest również tryb VR ze wsparciem urządzenia Oculus Quest 2.
+An educational endless runner game designed to teach basic math skills while avoiding obstacles and collecting points. The game is developed in Unity. In addition to the standard view, a VR mode is also available, compatible with the Oculus Quest 2.
